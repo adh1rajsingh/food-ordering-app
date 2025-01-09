@@ -2,7 +2,7 @@ import express, { Request, Response } from "express";
 import cors from "cors";
 import "dotenv/config";
 import mongoose from "mongoose";
-import myUserRoute from "./routes/myUserRoute"
+import myUserRoute from "./routes/myUserRoute";
 
 mongoose
   .connect(process.env.MONGODB_CONNECTION_STRING as string)
@@ -11,7 +11,11 @@ const app = express();
 app.use(express.json());
 app.use(cors());
 
-app.use("/api/my/user", myUserRoute)
+app.use("/api/my/user", myUserRoute);
+
+app.get("/health", async (req: Request, res: Response) => {
+  res.send({ message: "health OK!" });
+});
 
 app.listen(3000, () => {
   console.log("listening on port 3000");
