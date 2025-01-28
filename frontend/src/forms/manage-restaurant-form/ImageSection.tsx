@@ -6,7 +6,6 @@ import {
   FormMessage,
 } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
-import { FormInput } from "lucide-react";
 import { useFormContext } from "react-hook-form";
 
 const ImageSection = () => {

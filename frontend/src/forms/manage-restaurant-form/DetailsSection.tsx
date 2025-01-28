@@ -19,7 +19,7 @@ const DetailsSection = () => {
         </div >
         <FormField
           control={control}
-          name="restaurant name"
+          name="restaurantName"
           render={({ field }) => (
             <FormItem>
               <FormLabel>Name</FormLabel>
