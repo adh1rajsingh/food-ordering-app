@@ -2,9 +2,12 @@ import express, { Request, Response } from "express";
 import cors from "cors";
 import "dotenv/config";
 import mongoose from "mongoose";
-import myUserRoute from "./routes/myUserRoute";
+
 import { v2 as cloudinary } from "cloudinary";
-import myRestaurantRoute from "./routes/myRestaurantRoute"
+
+import myUserRoute from "./routes/myUserRoute";
+import MyRestaurantRoute from "./routes/MyRestaurantRoute";
+
 
 
 mongoose
@@ -22,7 +25,7 @@ app.use(express.json());
 app.use(cors());
 
 app.use("/api/my/user", myUserRoute);
-app.use("/api/my/restaurant", myRestaurantRoute);
+app.use("/api/my/restaurant", MyRestaurantRoute);
 
 app.get("/health", async (req: Request, res: Response) => {
   res.send({ message: "health OK!" });
