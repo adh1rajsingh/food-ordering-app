@@ -13,6 +13,8 @@ const upload = multer({
   },
 });
 
+router.get("/", jwtCheck, jwtParse, MyRestaurantController.getMyRestaurant);
+
 // middleware to validate and store image afte checking for imageFile
 router.post(
   "/",
@@ -22,5 +24,12 @@ router.post(
   jwtParse,
   MyRestaurantController.createMyRestaurant
 );
-
+router.put(
+  "/",
+  upload.single("imageFile"),
+  validateMyRestaurantRequest,
+  jwtCheck,
+  jwtParse,
+  MyRestaurantController.updateMyRestaurant
+);
 export default router;
