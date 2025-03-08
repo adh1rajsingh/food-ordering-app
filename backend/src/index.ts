@@ -7,6 +7,7 @@ import { v2 as cloudinary } from "cloudinary";
 
 import myUserRoute from "./routes/myUserRoute";
 import MyRestaurantRoute from "./routes/MyRestaurantRoute";
+import RestaurantRoute from "./routes/RestaurantRoute";
 
 
 
@@ -26,6 +27,7 @@ app.use(cors());
 
 app.use("/api/my/user", myUserRoute);
 app.use("/api/my/restaurant", MyRestaurantRoute);
+app.use("/api/restaurant", RestaurantRoute)
 
 app.get("/health", async (req: Request, res: Response) => {
   res.send({ message: "health OK!" });
